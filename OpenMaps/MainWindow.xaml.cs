@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using OpenMaps.MVVM;
 
 namespace OpenMaps
 {
@@ -20,9 +21,15 @@ namespace OpenMaps
     /// </summary>
     public partial class MainWindow : Window
     {
+        public MainMenuViewModel ViewModel { get; }
+        
         public MainWindow()
         {
             InitializeComponent();
+
+            ViewModel = (MainMenuViewModel)DataContext;
+            
+            ViewModel.RecentFiles.Add(new RecentFileInfo("Test", @"C:\Test", new BitmapImage()));
         }
     }
 }
