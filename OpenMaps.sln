@@ -2,6 +2,8 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenMaps", "OpenMaps\OpenMaps.csproj", "{018A0D97-7C39-4311-8151-4C335DA44416}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenMaps.Common.OMM", "OpenMaps.Common.OMM\OpenMaps.Common.OMM.csproj", "{BA7D3949-2A48-4BBF-9D1A-E0ED7B10654A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -12,5 +14,9 @@ Global
 		{018A0D97-7C39-4311-8151-4C335DA44416}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{018A0D97-7C39-4311-8151-4C335DA44416}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{018A0D97-7C39-4311-8151-4C335DA44416}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BA7D3949-2A48-4BBF-9D1A-E0ED7B10654A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BA7D3949-2A48-4BBF-9D1A-E0ED7B10654A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BA7D3949-2A48-4BBF-9D1A-E0ED7B10654A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BA7D3949-2A48-4BBF-9D1A-E0ED7B10654A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
