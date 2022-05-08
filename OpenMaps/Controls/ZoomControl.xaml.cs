@@ -24,7 +24,6 @@ public partial class ZoomControl : UserControl
         {
             LayoutTransform = new ScaleTransform(i, i);
         };
-        // the zoom control doesn't detect mouse event that isn;t on children
     }
 
     public void ZoomIn()
@@ -44,6 +43,9 @@ public partial class ZoomControl : UserControl
 
     public void ZoomOut(double offset)
     {
+        if (Zoom.Value - offset <= 0)
+            return;
+        
         Zoom.Value -= offset;
     }
 }

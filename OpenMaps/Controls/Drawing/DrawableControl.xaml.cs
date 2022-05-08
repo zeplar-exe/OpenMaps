@@ -71,14 +71,14 @@ public partial class DrawableControl
 
         if (DrawBrush == null)
             return;
-        
+
         var ratio = new Point(Width / PixelDisplay.Size.X, Height / PixelDisplay.Size.Y);
         var intPosition = new IntVector(Math2.FloorToInt(position.X / ratio.X), Math2.FloorToInt(position.Y / ratio.Y));
 
         var lastPoint = CurrentStroke?.Points.LastOrDefault(new IntVector(-1, -1))!;
-        
+
         PixelDisplay.Lock();
-        
+
         if (lastPoint != new IntVector(-1, -1))
         {
             var alphaAdd = 1d / new IntVector(intPosition.X - lastPoint.Value.X, intPosition.Y - lastPoint.Value.Y).Magnitude;
@@ -99,10 +99,10 @@ public partial class DrawableControl
                 UpdateStroke(intPosition);
             }
         }
-        
+
         DrawBrush.Draw(intPosition, PixelDisplay);
         UpdateStroke(intPosition);
-        
+
         PixelDisplay.Unlock();
     }
 

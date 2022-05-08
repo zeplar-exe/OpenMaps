@@ -35,10 +35,10 @@ namespace OpenMaps
             
             display.Unlock();
             
-            ViewModel.CanvasWidth.Value = 3000;
-            ViewModel.CanvasHeight.Value = 3000;
+            ViewModel.CanvasWidth.Value = 1000;
+            ViewModel.CanvasHeight.Value = 1000;
             ViewModel.PixelDisplay.Value = display;
-            ViewModel.DrawBrush.Value = new CircleBrush(new ColorPixel(Colors.Black), 5);
+            ViewModel.DrawBrush.Value = new CircleBrush(new ColorPixel(Colors.Black), 2);
         }
         
         private void Zoom_OnMouseWheel(object sender, MouseWheelEventArgs e)
