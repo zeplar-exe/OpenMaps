@@ -2,9 +2,9 @@
 
 public class LayerDescription
 {
-    public string Name { get; }
-    public byte[] Bytes { get; }
-    
+    public string Name { get; set; }
+    public byte[] Bytes { get; set; }
+
     public LayerDescription(string name, IEnumerable<byte> bytes)
     {
         Name = name;
