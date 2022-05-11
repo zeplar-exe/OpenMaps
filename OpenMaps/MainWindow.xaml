@@ -75,23 +75,70 @@
             </MenuItem>
         </Menu>
         
-        <Grid Grid.Row="1">
+        <Border Grid.Row="1" BorderBrush="Black" BorderThickness="0, 1, 0, 2">
+            <Grid>
             
+            </Grid>
+        </Border>
+        
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="100" MinWidth="100"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="130" MinWidth="130"/>
+            </Grid.ColumnDefinitions>
+            
+            <Border Grid.Column="0">
+                <Grid Margin="10">
+                    <StackPanel Orientation="Vertical">
+                        <WrapPanel ItemWidth="15" ItemHeight="15">
+                            <Button/>
+                            <Button/>
+                            <Button/>
+                        </WrapPanel>
+                        
+                        <Separator Margin="0, 2.5"/>
+                        
+                        <WrapPanel ItemWidth="15" ItemHeight="15">
+                            <Button/>
+                            <Button/>
+                        </WrapPanel>
+                    </StackPanel>
+                </Grid>
+            </Border>
+            
+            <GridSplitter Grid.Column="1" 
+                          Width="2" 
+                          VerticalAlignment="Stretch"
+                          Background="Black"/>
+            
+            <Border Grid.Column="2" Background="Gray">
+                <controls:ZoomControl
+                    RenderTransformOrigin="0.5, 0.5"
+                    PreviewMouseWheel="Zoom_OnMouseWheel">
+                    
+                    <ScrollViewer VerticalScrollBarVisibility="Disabled" HorizontalScrollBarVisibility="Disabled">
+                        <drawing:DrawableControl
+                            Width="{Binding CanvasWidth.Value}"
+                            Height="{Binding CanvasHeight.Value}"
+                            PixelDisplay="{Binding PixelDisplay.Value}" 
+                            DrawBrush="{Binding DrawBrush.Value}">
+                        </drawing:DrawableControl>
+                    </ScrollViewer>
+                </controls:ZoomControl>
+            </Border>
+            
+            <GridSplitter Grid.Column="3" 
+                          Width="2" 
+                          VerticalAlignment="Stretch"
+                          Background="Black"/>
+            
+            <Grid Grid.Column="4">
+                
+            </Grid>
         </Grid>
         
-        <controls:ZoomControl Grid.Row="2"
-                              Background="Gray"
-                              RenderTransformOrigin="0.5, 0.5"
-                              PreviewMouseWheel="Zoom_OnMouseWheel">
-            <ScrollViewer VerticalScrollBarVisibility="Disabled" HorizontalScrollBarVisibility="Disabled">
-                <drawing:DrawableControl
-                    Width="{Binding CanvasWidth.Value}"
-                    Height="{Binding CanvasHeight.Value}"
-                    PixelDisplay="{Binding PixelDisplay.Value}" 
-                    DrawBrush="{Binding DrawBrush.Value}">
-                    
-                </drawing:DrawableControl>
-            </ScrollViewer>
-        </controls:ZoomControl>
     </Grid>
 </Window>
