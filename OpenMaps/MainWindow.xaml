@@ -93,18 +93,20 @@
             <Border Grid.Column="0">
                 <Grid Margin="10">
                     <StackPanel Orientation="Vertical">
-                        <WrapPanel ItemWidth="15" ItemHeight="15">
-                            <Button/>
-                            <Button/>
-                            <Button/>
-                        </WrapPanel>
-                        
-                        <Separator Margin="0, 2.5"/>
-                        
-                        <WrapPanel ItemWidth="15" ItemHeight="15">
-                            <Button/>
-                            <Button/>
-                        </WrapPanel>
+                        <ItemsControl ItemsSource="{Binding Tools}">
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate DataType="mvvm:ToolObject">
+                                    <Button Click="ToolButton_Clicked">
+                                        <Image Source="{Binding Tool.Icon}"/>
+                                    </Button>
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                            <ItemsControl.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <WrapPanel ItemWidth="20" ItemHeight="20"/>
+                                </ItemsPanelTemplate>
+                            </ItemsControl.ItemsPanel>
+                        </ItemsControl>
                     </StackPanel>
                 </Grid>
             </Border>
@@ -124,7 +126,7 @@
                             Width="{Binding CanvasWidth.Value}"
                             Height="{Binding CanvasHeight.Value}"
                             PixelDisplay="{Binding PixelDisplay.Value}" 
-                            DrawBrush="{Binding DrawBrush.Value}">
+                            SelectedTool="{Binding SelectedTool.Value }">
                         </drawing:DrawableControl>
                     </ScrollViewer>
                 </controls:ZoomControl>

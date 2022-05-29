@@ -1,12 +1,15 @@
 ﻿using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using OpenMaps.Common;
 using OpenMaps.Controls;
 using OpenMaps.Controls.Drawing;
-using OpenMaps.Controls.Drawing.Brushes;
 using OpenMaps.MVVM;
+using OpenMaps.Tools;
+using OpenMaps.Tools.Brushes;
+using OpenMaps.Tools.Metrics;
 
 namespace OpenMaps
 {
@@ -38,7 +41,23 @@ namespace OpenMaps
             ViewModel.CanvasWidth.Value = 1000;
             ViewModel.CanvasHeight.Value = 1000;
             ViewModel.PixelDisplay.Value = display;
-            ViewModel.DrawBrush.Value = new CircleBrush(new ColorPixel(Colors.Black), 2);
+
+            var circularBrush = new CircularStrokeBrush
+            {
+                Radius = { Value = 2 }, 
+                Color = new ColorPixel(Colors.Black)
+            };
+            var rectangularBrush = new RectangularStokeBrush
+            {
+                Width = { Value = 5 },
+                Height = { Value = 5 },
+                StrokeWidth = { Value = 1 },
+                Color = new ColorPixel(Colors.Black),
+                StrokeColor = new ColorPixel(Colors.Black)
+            };
+            
+            ViewModel.Tools.Add(new ToolObject(circularBrush));
+            ViewModel.Tools.Add(new ToolObject(rectangularBrush));
         }
         
         private void Zoom_OnMouseWheel(object sender, MouseWheelEventArgs e)
@@ -53,6 +72,14 @@ namespace OpenMaps
             {
                 zoomControl.ZoomOut();
             }
+        }
+
+        private void ToolButton_Clicked(object sender, RoutedEventArgs e)
+        {
+            var button = (Button)sender;
+            var toolObject = (ToolObject)button.DataContext;
+
+            ViewModel.SelectedTool.Value = toolObject.Tool;
         }
     }
 }
